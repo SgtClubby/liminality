@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 1337",
-    "build": "next build",
+    "build": "sed -i 's/distDir: \"dev\"/distDir: \"build\"/' next.config.js && sleep 1 && next build && forever start -a --uid 'loq.no' -a -c 'npm run start' ./ && sleep 1 && sed -i 's/distDir: \"build\"/distDir: \"dev\"/' next.config.js",
     "start": "next start -p 7578",
     "lint": "next lint"
   },
