@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { images, music } from "./media/consts.js";
 
-
 function Background() {
 
     const [image, setImage] = useState(images[Math.floor(Math.random() * images.length)]);
@@ -11,13 +10,12 @@ function Background() {
         setTimeout(() => {
             let imageURL = images[Math.floor(Math.random() * images.length)];
             setImage(imageURL);  
-            window.scrollTo(0, 700);
         }, 5000);
     }, [image])
-    console.log(image)
+
     return (
-        <div className="w-full h-full max-h-full max-w-full">
-            <img src={image} className="w-full h-full max-h-full max-w-full" />
+        <div className="w-screen h-screen max-h-full max-w-full">
+            <img src={image} className="w-screen h-screen" />
             <audio autoPlay loop>
                 <source src={track} type="audio/mpeg" />
             </audio>
@@ -25,4 +23,4 @@ function Background() {
     )
 }
 
-export default Background
+export default Background;
